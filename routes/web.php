@@ -19,3 +19,16 @@ $router->get('/', function () use ($router) {
 $router->post('api/v1/author', [
     'as' => 'authors_create', 'uses' => 'AuthorController@create'
 ]);
+
+//Article
+$router->post('api/v1/article', [
+    'as' => 'article_create', 'uses' => 'ArticleController@create'
+]);
+
+$router->put('api/v1/article/{id}', [
+    'as' => 'article_update', 'uses' => 'ArticleController@update'
+]);
+
+$router->get('api/v1/article/all', [
+    'as' => 'article_all', 'uses' => 'ArticleController@all'
+]);
