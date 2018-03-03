@@ -105,4 +105,53 @@ class ArticleController extends Controller {
             ],
             200);
     }
+
+    public function show($id){
+        $article = Article::with('author')->find($id);
+        
+        if(!$article){
+            return response()->json(
+            [
+                'code'=> 400,
+                'success'=> false,
+                'error' => "The article with {$id} doesn't exist"
+            ], 
+            400);
+        }
+
+        return response()->json(
+        [
+            'code'=> 200, 
+            'success'=> true,
+            'message'=> 'OK', 
+            'data'=> $article
+        ],
+        200);
+    }
+
+    public function delete($id){
+        $article  = Article::find($id);
+
+        if (!$article){
+            return response()->json(
+            [
+                'code'=> 400,
+                'success'=> false,
+                'error' => "No records found to delete"
+            ],
+            400);
+        }else{
+            $article->delete();
+                return response()->json(
+            [
+                'code'=> 200, 
+                'success'=> true, 
+                'message'=> 'Deleted successfully!',
+            ],
+            200);
+            
+            
+        }
+    	
+    }
 }

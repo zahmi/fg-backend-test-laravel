@@ -21,14 +21,27 @@ $router->post('api/v1/author', [
 ]);
 
 //Article
+//Create article
 $router->post('api/v1/article', [
     'as' => 'article_create', 'uses' => 'ArticleController@create'
 ]);
 
+//Update article by id
 $router->put('api/v1/article/{id}', [
     'as' => 'article_update', 'uses' => 'ArticleController@update'
 ]);
 
+//Show all articles
 $router->get('api/v1/article/all', [
     'as' => 'article_all', 'uses' => 'ArticleController@all'
+]);
+
+//Show article by id
+$router->get('api/v1/article/show/{id}', [
+    'as' => 'article_show', 'uses' => 'ArticleController@show'
+]);
+
+//Delete article by id
+$router->delete('api/v1/article/{id}', [
+    'as' => 'article_delete', 'uses' => 'ArticleController@delete'
 ]);
