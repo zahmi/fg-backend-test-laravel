@@ -15,6 +15,7 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->get('/test', function () use ($router) {
-    return "Zahmiiii";
-});
+//Author
+$router->post('api/v1/author', [
+    'as' => 'authors_create', 'uses' => 'AuthorController@create'
+]);
