@@ -17,19 +17,19 @@ class ArticleController extends Controller {
         if ($validator->fails()) {  //Check for validations
             return response()->json(
             [
-                'code'=> 422,
+                'code'=> 400,
                 'success'=> false,
                 'errors' => $validator->messages()
             ], 
-            422);
+            400);
         }else if (!$author){    //Check if author exists
             return response()->json(
             [
-                'code'=> 404,
+                'code'=> 400,
                 'success'=> false,
                 'error' => "Invalid author id {$request->get('author_id')}"
             ],
-             404);
+             400);
             
         }else{  //Success
             $article = Article::create($request->all());
@@ -62,11 +62,11 @@ class ArticleController extends Controller {
        if (!$author){
            return response()->json(
             [
-                'code'=> 404,
+                'code'=> 400,
                 'success'=> false,
                 'error' => "Invalid author id {$request->get('author_id')}"
             ],
-            404);
+            400);
        }
 
        $validator = Validator::make($request->all(), Article::$rules);
@@ -74,11 +74,11 @@ class ArticleController extends Controller {
        if ($validator->fails()) {
             return response()->json(
             [
-                'code'=> 422,
+                'code'=> 400,
                 'success'=> false,
                 'errors' => $validator->messages()
             ], 
-            422);
+            400);
         }else{
             $record = $request->all();
             $article->update($record);

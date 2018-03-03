@@ -14,11 +14,11 @@ class AuthorController extends Controller {
         if ($validator->fails()) {  //Check for validations
             return response()->json(
                 [
-                    'code'=> 422,
+                    'code'=> 400,
                     'success'=> false,
                     'errors' => $validator->messages()
                 ], 
-                422);
+                400);
         }else{  //Success
             $author = Author::create($request->all());
                 return response()->json(
