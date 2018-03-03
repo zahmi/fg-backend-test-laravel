@@ -1,0 +1,153 @@
+{
+	"variables": [],
+	"info": {
+		"name": "fg-backend-test-laravel",
+		"_postman_id": "4e834687-f867-c071-6152-511faf56cb6e",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Author",
+			"request": {
+				"url": "http://localhost/fg-backend-test-laravel/public/api/v1/author",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Micheal",
+							"type": "text"
+						}
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "Create Article",
+			"request": {
+				"url": "http://localhost/fg-backend-test-laravel/public/api/v1/article",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "author_id",
+							"value": "3",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "Tetimonies",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "url",
+							"value": "/article/10",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "Please read these testimonies for you to get a better idea.",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "Update Article",
+			"request": {
+				"url": "http://localhost/fg-backend-test-laravel/public/api/v1/article/2",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "author_id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "My Diary!",
+							"type": "text"
+						},
+						{
+							"key": "url",
+							"value": "/article/5",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "This is a post about the contents of my diary!",
+							"type": "text"
+						}
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "Show All Articles",
+			"request": {
+				"url": "http://localhost/fg-backend-test-laravel/public/api/v1/article/all",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "Show Article By Id",
+			"request": {
+				"url": "http://localhost/fg-backend-test-laravel/public/api/v1/article/show/3",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Article By Id",
+			"request": {
+				"url": "http://localhost/fg-backend-test-laravel/public/api/v1/article/6",
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": null
+			},
+			"response": []
+		}
+	]
+}
